@@ -5,7 +5,7 @@ function init() {
   var width = window.innerWidth;
   var height = window.innerHeight;
 
-  camera = new THREE.PerspectiveCamera(45, width/height, 0.1, 25000);
+  camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 25000);
   camera.position.set(0, 200, 700);
   scene.add(camera);
 
@@ -37,29 +37,31 @@ function init() {
     side: THREE.BackSide
   });
 
-    
+
   var cubeGeometry = new THREE.BoxGeometry(4000, 4000, 4000);
   var cubemap = new THREE.Mesh(cubeGeometry, cubeMaterial);
   scene.add(cubemap);
 
   var textureLoader = new THREE.TextureLoader();
 
-  textureLoader.load('images/marble.jpg', function(texture) {
-    var material = new THREE.MeshStandardMaterial({map: texture});
+  textureLoader.load('images/texture.jpg', function(texture) {
+    var material = new THREE.MeshLambertMaterial({
+      map: texture,
+      vertexColors: THREE.VertexColors
+    });
 
-    var octahedronGeometry = new THREE.OctahedronGeometry(100, 0); // radius, detail
+    var octahedronGeometry = new THREE.CubeGeometry(100, 600, 100); 
+      
     var octahedron = new THREE.Mesh(octahedronGeometry, material);
-    octahedron.position.y = 100;
+    octahedron.position.y = 0;
     scene.add(octahedron);
   });
 
-  /*var planeGeometry = new THREE.PlaneGeometry(1000, 1000, 10, 10);
-  var planeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true});
-  var plane = new THREE.Mesh(planeGeometry, planeMaterial);
-  plane.rotation.x = Math.PI / -2; // radians
-  scene.add(plane);*/
 
-  renderer = new THREE.WebGLRenderer({alpha: 1, antialias: true});
+  renderer = new THREE.WebGLRenderer({
+    alpha: 1,
+    antialias: true
+  });
   renderer.setSize(width, height);
   renderer.shadowMap.enabled = true;
 
@@ -70,16 +72,13 @@ function init() {
 
 function animate() {
   requestAnimationFrame(animate);
-
-    /*
-  // revolve camera around the scene
   var date = new Date(); // get date string
   var timer = date.getTime() * 0.0002;
   camera.position.x = 800 * Math.cos(timer);
   camera.position.z = 800 * Math.sin(timer);
-*/
+
   renderer.render(scene, camera);
-  //controls.update();
+  controls.update();
 }
 
 init();

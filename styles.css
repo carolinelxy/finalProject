@@ -29,8 +29,13 @@ canvas {
     float: left;
 }
 
-.fonts {
-    display: inline-block
+h1 {
+    padding-top: 100px;
+    font-size: 50px;
+}
+
+.pictures {
+    display: block;
 }
 
 .block1 {
@@ -43,35 +48,16 @@ canvas {
     padding-left: 100px;
 }
 
-/* different fonts */ 
-
-#helvetica {
-    font-family: "Helvetica", sans-serif;        
+img {
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+    opacity: 0.5;
+    
 }
 
-#baskerville {
-    font-family: "Baskerville", sans-serif;        
-}
-
-#verdana {
-    font-family: "Verdana", sans-serif;        
-}
-
-#gill {
-    font-family: "Gill Sans", sans-serif;        
-}
-
-#georgia {
-    font-family: "Georgia", sans-serif;        
-}
-
-#futura {
-    font-family: "Futura", sans-serif;        
-}
-
-.paragraph {
-    font-size: 20px;
-    font-style: normal;
+img:hover {
+    opacity: 1;
 }
 
 

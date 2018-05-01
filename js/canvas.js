@@ -1,11 +1,8 @@
 
-//var canvas = document.getElementById('buildings');
 
 const canvasBase = document.getElementById('base');
-//const canvasWindow = document.getElementById('window');
 
 const contextBase = canvasBase.getContext('2d');
-//const contextWindow = canvasWindow.getContext('2d');
 
 var referenceWidth = 1440;
 var referenceHeight = 800;
